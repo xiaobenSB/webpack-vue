@@ -1,0 +1,30 @@
+配置文件
+
+服务器配置在webpack.dev.conf.js里
+
+.postcssrc.js 和 .eslintrc.js 都是vue的配置文件 --
+
+.eslintrc.js 对应的是webpack.base.conf.js里的 createLintingRule方法
+
+.postcssrc.js 对应的是src/main.js里的 import ElementUI from 'element-ui'     
+import 'element-ui/lib/theme-chalk/index.css'   这个是以什么来编译vue里的css（简单的话：使vue的css支持）
+
+如果是require（../config）这个文件,默认引入的是根目录的index.js(不知是引入文件名时默认都是index.js不)，注意这里面设置 了 useEslint 为 true,规范了写法并且按照别人的写法（注意人家规定缩进得是空格不是tab，不然报什么tab错误）
+
+nom run dev 只是单纯的把个个代码拼接好实时更新显示在浏览器
+
+npm run build 是打包（webpack.bass.conf.js里的output配置出口）这个可以减少多开个控制台
+
+
+
+vue的地址模板控制器
+
+一般vue都是把地址模板控制器放在router文件里，然后默认引入的是index.js，然后把引入的放在实例vue执行待执行函数里的对象进行渲染（注意因为是对象里，所以键名得是人家固定的键名：router）
+
+
+
+前后端
+
+如果想通过Node获取数据，等使用axios模块（数据请求，当前这个在src/http.js里），vue是通过这个模块去请求再返回数据的，所以还要开一个后台控制台，不知可以就一个控制台就可以实现前后端不。然后前台获取数据时就通过引入这个文件里返回数据的控制器
+
+原文地址：https://gitee.com/react-module/node-vue
